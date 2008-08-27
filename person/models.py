@@ -8,12 +8,12 @@ class Person(models.Model):
     bangledeshiTitle = models.CharField(max_length=200, blank=True)
     
     def __unicode__(self):
-        return u"%s %s - %s" (self.firstName, self.lastName, self.title) 
+        return u"%s %s - %s" % (self.firstName, self.lastName, self.title) 
 
 class PhoneNumber(models.Model):
     number = models.CharField(max_length=32)
     label = models.CharField(max_length=32)
-    person = models.ManyToManyField(Person)
+    person = models.ForeignKey(Person)
 
     def __unicode__(self):
         return u"%s %s" % (self.label, self.number)
@@ -21,7 +21,7 @@ class PhoneNumber(models.Model):
 class EmailAddress(models.Model):
     emailAddress = models.EmailField()
     label = models.CharField(max_length=32)
-    person = models.ManyToManyField(Person)
+    person = models.ForeignKey(Person)
     
     def __unicode__(self):
         return u"%s %s" % (self.label, self.emailAddress)

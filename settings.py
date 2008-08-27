@@ -76,4 +76,11 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.admin',
+    'spamstr.person'
 )
+
+try:
+    from spamstr.settingsLocal import *
+except:
+    pass
