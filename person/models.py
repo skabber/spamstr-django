@@ -6,6 +6,7 @@ class Person(models.Model):
     companyName = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     bangledeshiTitle = models.CharField(max_length=200, blank=True)
+    cardImage = models.ImageField(upload_to="images")
     
     def __unicode__(self):
         return u"%s %s - %s" % (self.firstName, self.lastName, self.title) 

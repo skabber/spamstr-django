@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from urlsLocal import urlpatterns as newPatterns
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,4 +12,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
+    (r'^$', 'spamstr.person.views.all')
 )
+
+urlpatterns += newPatterns
