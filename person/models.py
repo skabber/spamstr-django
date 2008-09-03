@@ -9,7 +9,10 @@ class Person(models.Model):
     cardImage = models.ImageField(upload_to="images")
     
     def __unicode__(self):
-        return u"%s %s - %s" % (self.firstName, self.lastName, self.title) 
+        return u"%s %s - %s" % (self.firstName, self.lastName, self.title)
+    
+    def get_absolute_url(self):
+        return "/person/%s/" % self.id
 
 class PhoneNumber(models.Model):
     number = models.CharField(max_length=32)

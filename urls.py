@@ -12,7 +12,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
-    (r'^$', 'spamstr.person.views.all')
+    (r'', include('spamstr.person.urls')),
+#    (r'^$', 'spamstr.person.views.all')
 )
 
 urlpatterns += newPatterns
