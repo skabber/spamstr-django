@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+Add a new Person
+
+<form method="POST" action="." enctype="multipart/form-data">
+	{{ form.as_p }}
+	<input type="submit"/>
+</form>
+
+{% endblock %}
