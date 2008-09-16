@@ -77,7 +77,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'spamstr.person'
+    'spamstr.person',
+    'gravatar'
 )
 
 try:

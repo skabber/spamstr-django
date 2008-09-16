@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
-{% block body %}
-Add a new Person
+{% block content %}
+<h1>New person</h1>
 
-<form method="POST" action="." enctype="multipart/form-data">
+<form method="POST" action=".">
 	{{ form.as_p }}
+	<hr/>
+	{{ phone_forms.management_form }}
+	{% for form in phone_forms.forms %}
+		{{ form.as_p }}
+	{% endfor %}
 	<input type="submit"/>
 </form>
 

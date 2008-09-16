@@ -1,0 +1,254 @@
+/*********************/
+/*  Necessary evils  */
+/*********************/
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  }
+
+.clearfix { display: inline-block; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+
+
+/********************/
+/*  Section styles  */
+/********************/
+
+body {
+  background: #DFDFDF;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  }
+
+#container {
+  
+  }
+
+#header {
+  position: relative;
+  background: #DFDFDF;
+  border: solid #31363E;
+  border-width: 0 0 1px 0;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+  }
+
+#header h1 {
+  margin: 10px 15px;
+  padding: 0;
+  }
+
+#content {
+  background: #FFFFFF;
+  padding: 1px 15px;
+  }
+
+#footer {
+  border-top: 1px solid #31363E;
+  padding: 4px 15px;
+  }
+
+
+
+/****************/
+/*  Navigation  */
+/****************/
+
+#nav {
+  position: absolute;
+  bottom: -1px;
+  left: 5px;
+  }
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+#nav li {
+  float: left;
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  }
+
+#nav li a {
+  display: block;
+  background: #DFDFDF url('/images/tab-bottom.jpg') repeat-x bottom;
+  border: 1px solid #31363E;
+  color: #222222;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-decoration: none;
+  }
+
+#nav li a:hover {
+  background: #EAEAEA;
+  }
+
+#nav li a.current {
+  background: #FFFFFF;
+  border: 1px solid;
+  border-color: #31363E #31363E #FFFFFF #31363E;
+  color: ;
+  }
+
+
+
+/*****************/
+/*  Person card  */
+/*****************/
+
+.person {
+  background: #EAEAEA;
+  border: 1px solid #909090;
+  width: 600px;
+  margin: 15px 0;
+  padding: 0;
+  }
+
+.person p {
+  margin: 0;
+  padding: 0;
+  }
+
+.person h3.name {
+  background: #BABABA;
+  border-bottom: 1px solid #909090;
+  margin: 0;
+  padding: 3px 6px;
+  }
+
+.person div.avatar {
+  float: left;
+  text-align: center;
+  margin: 8px;
+  }
+
+.person img.avatar {
+  background: #B0B0B0;
+  border: 1px solid #909090;
+  margin-bottom: 5px;
+  padding: 4px;
+  }
+
+.person .information {
+  float: left;
+  margin: 8px;
+  }
+
+.person ul.phones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+
+.person ul.phones li {
+  margin: 0;
+  padding: 0;
+  }
+
+.person .timestamp {
+  display: block;
+  clear: both;
+  background: #BABABA;
+  border-top: 1px solid #909090;
+  text-align: right;
+  font-size: 9px;
+  padding: 3px 6px;
+  margin-top: 10px;
+  }
+
+
+
+/*****************/
+/*  Link styles  */
+/*****************/
+
+a {
+  color: #000000;
+  text-decoration: none;
+  }
+
+a:hover {
+  color: #666666;
+  }
+
+
+
+/*****************/
+/*  Flash styles  */
+/*****************/
+
+p.flash_notice,
+p.flash_error {
+  border: 1px solid #909090;
+  color: #222222;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 ! important;
+  padding: 10px ! important;
+  }
+
+p.flash_notice {
+  background: #BABABA;
+  }
+
+p.flash_error {
+  background: #DFC0C0;
+  }
+
+
+
+/*********************/
+/*  Scaffold styles  */
+/*********************/
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
