@@ -1,0 +1,30 @@
+{% load gravatar %}
+<div class="person clearfix">
+  <h3 class="name"><a href="{{ person.get_absolute_url }}">{{ person }}</a></h3>
+
+  <div class="avatar">
+    <p><img src="{% gravatar_for_email person.email %}"/></p>
+    <p><a href="/edit/{{ person.id }}/">edit</a> | <a href="/delete/{{ person.id }}/">delete</a></p>
+  </div>
+
+  <div class="information">
+
+    <p class="title-and-company">{{ person.title}} at {{ person.company }}</p>
+    <p class="emails">{{ person.email }}</p>
+	
+	{% if person.phonenumber_set.all %}
+		<ul class="phones">
+		{% for phoneNumber in person.phonenumber_set.all %}
+			<li>{{ phoneNumber.number }} ({{ phoneNumber.label }})</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+  </div>
+
+  <div class="timestamp">
+    <p>Created on {{ person.created_at|date:"F d, Y" }}
+	{% ifnotequal person.created_at  person.updated_at %}
+		 and last updated on {{ person.updated_at|date:"F d, Y" }}
+	{% endifnotequal %}</p>
+  </div>
+</div>
