@@ -5,12 +5,13 @@
 
 <form method="POST" action=".">
 	{{ form.as_p }}
-	<hr/>
 	{{ phone_forms.management_form }}
 	{% for form in phone_forms.forms %}
+	<hr/>
+	Phone # {{ forloop.counter }}
 		{{ form.as_p }}
 	{% endfor %}
-	<input type="submit"/>
+	<input type="submit" value="Add Person"/>
 </form>
 
 {% endblock %}

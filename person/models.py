@@ -20,6 +20,8 @@ class Person(models.Model):
         return "/person/%s/" % self.id
     
 
+    
+
 class PhoneNumber(models.Model):
     number = models.CharField(max_length=32)
     label = models.CharField(max_length=32)

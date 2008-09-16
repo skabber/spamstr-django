@@ -1,15 +1,5 @@
 {% extends "base.html" %}
 
-{% block body %}
-<img src="{{ person.cardImage.url }}"/>
-<a href="{{ person.get_absolute_url }}">{{ person.firstName }} {{ person.lastName }}</a><br/>
-{{ person.companyName }}<br/>
-{{ person.title }}<br/>
-{% if person.bangledeshiTitle %}
-	{{ person.bangledeshiTitle }}<br/>
-{% endif %}
-{% for phoneNumber in person.phonenumber_set.all %}
-	<strong>{{ phoneNumber.label }}</strong>: {{ phoneNumber.number }}<br/>
-{% endfor %}
-<a href="/delete/{{ person.id }}/">Delete</a>
+{% block content %}
+	{% include "includes/person.html" %}
 {% endblock %}

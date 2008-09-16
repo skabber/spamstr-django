@@ -1,12 +1,16 @@
 from django.shortcuts import get_object_or_404, render_to_response
-from django.http import HttpResponseRedirect
-from django.template import RequestContext
+from django.http import HttpResponseRedirect, HttpResponse
+from django.template import Context, loader, RequestContext
+
 from spamstr.person.models import Person, PhoneNumber
 from spamstr.person.forms import PersonForm, PhoneNumberFormSet
 
 def index(request):
     people = Person.objects.all()
-    return render_to_response('index.html', {'page_name': 'index', 'people': people}, RequestContext(request))
+    template = loader.get_template('index.html')
+    context = RequestContext(request)
+    context.update({'page_name': 'index', 'people': people})
+    return HttpResponse(template.render(context))
 
 def add(request):
     if request.method == "GET":
@@ -38,4 +42,4 @@ def delete(request, id):
 
 def detail(request, id):
     person = Person.objects.get(id=id)
-    return render_to_response('detail.html', {'person': person}, RequestContext(request))
+    return render_to_response('detail.html', {'page_name': person,'person': person}, RequestContext(request))
