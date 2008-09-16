@@ -10,7 +10,7 @@ class EmailAddressInline(admin.StackedInline):
     extra = 2
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('firstName', 'lastName', 'title')
+    list_display = ('first_name', 'last_name', 'title')
     inlines = [PhoneNumberInline, EmailAddressInline]
 
 admin.site.register(Person, PersonAdmin)
