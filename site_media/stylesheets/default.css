@@ -56,12 +56,10 @@ body {
   padding: 1px 15px;
   }
 
-#footer {
-  border-top: 1px solid #31363E;
-  padding: 4px 15px;
-  }
-
-
+#footer { 
+   background: url('/site_media/images/footer.jpg') repeat-x;
+   height: 20px;
+}
 
 /****************/
 /*  Navigation  */
@@ -88,7 +86,7 @@ body {
 
 #nav li a {
   display: block;
-  background: #DFDFDF url('/images/tab-bottom.jpg') repeat-x bottom;
+  background: #DFDFDF url('/site_media/images/tab-bottom.jpg') repeat-x bottom;
   border: 1px solid #31363E;
   color: #222222;
   font-weight: bold;

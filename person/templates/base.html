@@ -19,6 +19,13 @@
           <ul>
             <li><a href="/" {% ifequal page_name "index" %} class="current"{% endifequal %}>List People</a></li>
             <li><a href="/add/" {% ifequal page_name "add" %} class="current"{% endifequal %}>Add a Person</a></li>
+			{% ifequal page_name "edit" %}
+				<li><a href="/person/{{ person.id }}/" class="current">Editing {{ person }}</a></li>
+			{% endifequal %}
+			{% ifequal page_name "detail" %}
+				<li><a href="/person/{{ person.id }}/" class="current">{{ person }}</a></li>
+			{% endifequal %}
+			
           </ul>
         </div>
       </div>
@@ -26,6 +33,7 @@
       <div id="content">
 		{% block content %}{% endblock %}
       </div>
+	<div id="footer"></div>
     </div>
   </body>
 </html>

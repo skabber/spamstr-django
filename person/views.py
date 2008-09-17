@@ -34,7 +34,7 @@ def edit(request, id):
     if request.method == "GET":
         form = PersonForm(instance=person)
         phone_forms = PhoneNumberFormSet()
-    return render_to_response('add.html', {'page_name': 'add', 'form': form, 'phone_forms': phone_forms}, RequestContext(request))
+    return render_to_response('add.html', {'page_name': 'edit', 'form': form, 'phone_forms': phone_forms, 'person': person}, RequestContext(request))
 
 def delete(request, id):
     person = Person.objects.get(id=id)
@@ -43,4 +43,4 @@ def delete(request, id):
 
 def detail(request, id):
     person = Person.objects.get(id=id)
-    return render_to_response('detail.html', {'page_name': person,'person': person}, RequestContext(request))
+    return render_to_response('detail.html', {'page_name': 'detail','person': person}, RequestContext(request))
