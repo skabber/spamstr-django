@@ -22,9 +22,6 @@
   </div>
 
   <div class="timestamp">
-    <p>Created on {{ person.created_at|date:"F d, Y" }}
-	{% ifnotequal person.created_at  person.updated_at %}
-		 and last updated on {{ person.updated_at|date:"F d, Y" }}
-	{% endifnotequal %}</p>
+    <p>Created on {{ person.created_at|date:"F d, Y" }}</p>
   </div>
 </div>

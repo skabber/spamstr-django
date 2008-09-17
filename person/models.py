@@ -19,9 +19,6 @@ class Person(models.Model):
     def get_absolute_url(self):
         return "/person/%s/" % self.id
     
-
-    
-
 class PhoneNumber(models.Model):
     number = models.CharField(max_length=32)
     label = models.CharField(max_length=32)
@@ -34,4 +31,3 @@ class PhoneNumber(models.Model):
     
     def __unicode__(self):
         return u"%s %s" % (self.label, self.number)
-

@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import Context, loader, RequestContext
-
 from spamstr.person.models import Person, PhoneNumber
 from spamstr.person.forms import PersonForm, PhoneNumberFormSet
 
@@ -11,6 +10,8 @@ def index(request):
     context = RequestContext(request)
     context.update({'page_name': 'index', 'people': people})
     return HttpResponse(template.render(context))
+    # This does the exact same thing, but in one line.
+    #return render_to_response("index.html", {'page_name': 'index', 'people': Person.objects.all()}, RequestContext(request))
 
 def add(request):
     if request.method == "GET":

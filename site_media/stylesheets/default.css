@@ -51,6 +51,8 @@ body {
 
 #content {
   background: #FFFFFF;
+  border: solid #31363E;
+  border-width: 0 0 1px 0;
   padding: 1px 15px;
   }
 
@@ -199,7 +201,7 @@ p.flash_error {
   color: #222222;
   font-size: 14px;
   font-weight: bold;
-  margin: 0 ! important;
+  margin: 15px 0 ! important;
   padding: 10px ! important;
   }
 
