@@ -13,28 +13,26 @@ def index(request):
     # This does the exact same thing, but in one line.
     #return render_to_response("index.html", {'page_name': 'index', 'people': Person.objects.all()}, RequestContext(request))
 
-def add(request):
-    if request.method == "GET":
-        form = PersonForm()
-        phone_forms = PhoneNumberFormSet()
+def add_or_edit(request, id):
+    if id is None:
+        person = None
+        page_name = "add"
     else:
-        form = PersonForm(request.POST)
-        phone_forms = PhoneNumberFormSet(request.POST)
-        if form.is_valid() and phone_forms.is_valid():
-            person = form.save()
-            for form in phone_forms.forms:
-                print form.has_changed()
-                if form.has_changed():
-                    phone_number = PhoneNumber.objects.create(person=person, number=form.cleaned_data['number'], label=form.cleaned_data['label'])
-            return HttpResponseRedirect('/')
-    return render_to_response('add.html', {'page_name': 'add', 'form': form, 'phone_forms': phone_forms}, RequestContext(request))
-
-def edit(request, id):
-    person = Person.objects.get(id=id)
+        person = get_object_or_404(Person, id=id)
+        page_name = "edit"
     if request.method == "GET":
         form = PersonForm(instance=person)
-        phone_forms = PhoneNumberFormSet()
-    return render_to_response('add.html', {'page_name': 'edit', 'form': form, 'phone_forms': phone_forms, 'person': person}, RequestContext(request))
+        phone_forms = PhoneNumberFormSet(instance=person)
+    if request.method == "POST":
+        form = PersonForm(request.POST, instance=person)
+        phone_forms = PhoneNumberFormSet(request.POST, instance=person)
+        if form.is_valid() and phone_forms.is_valid():
+            person = form.save()
+            phone_forms = PhoneNumberFormSet(request.POST, instance=person)
+            phone_forms.is_valid()
+            phone_forms.save()
+            return HttpResponseRedirect('/person/%s/' % person.id)
+    return render_to_response('add.html', {'page_name': page_name, 'form': form, 'phone_forms': phone_forms, 'person': person}, RequestContext(request))
 
 def delete(request, id):
     person = Person.objects.get(id=id)

@@ -11,7 +11,7 @@
 	Phone # {{ forloop.counter }}
 		{{ form.as_p }}
 	{% endfor %}
-	<input type="submit" value="Add Person"/>
+	<input type="submit" value="{{ page_name }} Person"/>
 </form>
 
 {% endblock %}

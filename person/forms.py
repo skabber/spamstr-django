@@ -1,7 +1,8 @@
 from django.forms import ModelForm
 from django.forms.formsets import formset_factory
+from django.forms.models import inlineformset_factory
 from django import forms
-from spamstr.person.models import Person
+from spamstr.person.models import Person, PhoneNumber
 
 LABEL_CHOICES = (
     ("home", "home"),
@@ -18,4 +19,5 @@ class PhoneNumberForm(forms.Form):
     number = forms.CharField()
     label = forms.ChoiceField(choices=LABEL_CHOICES)
 
-PhoneNumberFormSet = formset_factory(PhoneNumberForm, extra=2)
+PhoneNumberFormSet = inlineformset_factory(Person, PhoneNumber, fk_name='person', extra=2)
+#PhoneNumberFormSet = formset_factory(PhoneNumberForm, extra=2)
